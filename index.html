@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hariharan | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #070b16;
+            color: white;
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(7, 11, 22, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .navbar {
+            max-width: 1150px;
+            margin: auto;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #00e5ff;
+        }
+
+        .logo span {
+            color: #8b5cf6;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c7cad5;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00e5ff;
+        }
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 110px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #9298a9;
+        }
+
+        .gradient {
+            background: linear-gradient(90deg,#00e5ff,#8b5cf6);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* HERO */
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.3fr .7fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .hello {
+            color: #00e5ff;
+            font-size: 17px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px,7vw,80px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h3 {
+            font-size: 24px;
+            color: #b8bdcc;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #9298a9;
+            line-height: 1.8;
+            max-width: 650px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 13px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: linear-gradient(90deg,#00e5ff,#8b5cf6);
+            color: white;
+        }
+
+        .primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,229,255,.2);
+        }
+
+        .outline {
+            border: 1px solid #00e5ff;
+            color: #00e5ff;
+        }
+
+        .outline:hover {
+            background: #00e5ff;
+            color: #071018;
+        }
+
+        /* PROFILE */
+
+        .profile {
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 75px;
+            font-weight: 800;
+            color: white;
+
+            background:
+                linear-gradient(#0d1222,#0d1222) padding-box,
+                linear-gradient(135deg,#00e5ff,#8b5cf6) border-box;
+
+            border: 5px solid transparent;
+
+            box-shadow:
+                0 0 60px rgba(0,229,255,.12);
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .about-card {
+            padding: 35px;
+            background: #0d1222;
+            border: 1px solid #1b2237;
+            border-radius: 15px;
+            transition: .3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: #00e5ff;
+        }
+
+        .about-card h3 {
+            color: #00e5ff;
+            margin-bottom: 15px;
+        }
+
+        .about-card p {
+            color: #9298a9;
+            line-height: 1.8;
+        }
+
+        /* EDUCATION */
+
+        .education {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .edu-card {
+            padding: 30px;
+            background: #0d1222;
+            border: 1px solid #1b2237;
+            border-radius: 15px;
+            text-align: center;
+            transition: .3s;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-7px);
+            border-color: #8b5cf6;
+        }
+
+        .edu-card .year {
+            color: #00e5ff;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .percentage {
+            font-size: 45px;
+            font-weight: 800;
+            margin: 15px 0;
+        }
+
+        .edu-card h3 {
+            font-size: 19px;
+        }
+
+        .edu-card p {
+            color: #9298a9;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 25px;
+            background: #0d1222;
+            border: 1px solid #1b2237;
+            border-radius: 12px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .skill-bar {
+            height: 7px;
+            background: #1b2237;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-bar span {
+            display: block;
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(90deg,#00e5ff,#8b5cf6);
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 25px;
+        }
+
+        .project {
+            padding: 30px;
+            background: #0d1222;
+            border: 1px solid #1b2237;
+            border-radius: 15px;
+            transition: .3s;
+        }
+
+        .project:hover {
+            transform: translateY(-6px);
+            border-color: #00e5ff;
+        }
+
+        .project-number {
+            color: #8b5cf6;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #9298a9;
+            line-height: 1.7;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: rgba(0,229,255,.08);
+            color: #00e5ff;
+            font-size: 11px;
+        }
+
+        /* CERTIFICATIONS */
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .cert {
+            padding: 25px;
+            background: #0d1222;
+            border: 1px solid #1b2237;
+            border-radius: 15px;
+        }
+
+        .cert-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .cert h3 {
+            margin-bottom: 8px;
+        }
+
+        .cert p {
+            color: #9298a9;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            text-align: center;
+            padding: 60px 25px;
+            background: #0d1222;
+            border: 1px solid #1b2237;
+            border-radius: 20px;
+        }
+
+        .contact-box h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #9298a9;
+            margin-bottom: 25px;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: #c7cad5;
+            border: 1px solid #29324a;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: .3s;
+        }
+
+        .socials a:hover {
+            color: #00e5ff;
+            border-color: #00e5ff;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #636b7e;
+            border-top: 1px solid #161d30;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero,
+            .about,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .education,
+            .skills,
+            .certifications {
+                grid-template-columns: 1fr;
+            }
+
+            .profile {
+                width: 230px;
+                height: 230px;
+                font-size: 55px;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .hero p {
+                margin: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="navbar">
+
+        <div class="logo">
+            H<span>H</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section id="home">
+
+    <div class="hero">
+
+        <div>
+
+            <div class="hello">
+                👋 Hello, I'm
+            </div>
+
+            <h1>
+                Hariharan
+            </h1>
+
+            <h3>
+                B.E. <span class="gradient">Cybersecurity</span> Student
+            </h3>
+
+            <p>
+                I'm a passionate cybersecurity student who enjoys learning
+                about technology, security, programming and building
+                creative digital solutions.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn primary">
+                    View My Work
+                </a>
+
+                <a href="#contact" class="btn outline">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile">
+            HH
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <h2>
+            About <span class="gradient">Me</span>
+        </h2>
+
+        <p>
+            A little introduction about my journey.
+        </p>
+
+    </div>
+
+
+    <div class="about">
+
+        <div class="about-card">
+
+            <h3>Who I Am</h3>
+
+            <p>
+                I'm Hariharan, currently pursuing B.E. Cybersecurity at
+                Sri Sairam Engineering College. I'm interested in
+                cybersecurity, programming, networking and emerging
+                technologies.
+            </p>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <h3>My Goal</h3>
+
+            <p>
+                My goal is to continuously improve my technical skills,
+                gain practical experience and build a strong career
+                in the field of cybersecurity.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <div class="section-title">
+
+        <h2>
+            My <span class="gradient">Education</span>
+        </h2>
+
+        <p>
+            My academic journey so far.
+        </p>
+
+    </div>
+
+
+    <div class="education">
+
+        <div class="edu-card">
+
+            <div class="year">
+                SCHOOL
+            </div>
+
+            <h3>10th Standard</h3>
+
+            <div class="percentage gradient">
+                75%
+            </div>
+
+            <p>
+                Secondary School Education
+            </p>
+
+        </div>
+
+
+        <div class="edu-card">
+
+            <div class="year">
+                SCHOOL
+            </div>
+
+            <h3>12th Standard</h3>
+
+            <div class="percentage gradient">
+                85%
+            </div>
+
+            <p>
+                Higher Secondary Education
+            </p>
+
+        </div>
+
+
+        <div class="edu-card">
+
+            <div class="year">
+                CURRENT
+            </div>
+
+            <h3>B.E. Cybersecurity</h3>
+
+            <div class="percentage gradient">
+                🎓
+            </div>
+
+            <p>
+                Sri Sairam Engineering College
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="section-title">
+
+        <h2>
+            My <span class="gradient">Skills</span>
+        </h2>
+
+        <p>
+            Technologies and areas I'm learning.
+        </p>
+
+    </div>
+
+
+    <div class="skills">
+
+        <div class="skill-card">
+            <h3>🐍 Python</h3>
+            <div class="skill-bar">
+                <span style="width:75%"></span>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3>🌐 HTML & CSS</h3>
+            <div class="skill-bar">
+                <span style="width:85%"></span>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3>💻 Linux</h3>
+            <div class="skill-bar">
+                <span style="width:70%"></span>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3>🔐 Cybersecurity</h3>
+            <div class="skill-bar">
+                <span style="width:75%"></span>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3>🌐 Networking</h3>
+            <div class="skill-bar">
+                <span style="width:70%"></span>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <h3>🗄️ SQL</h3>
+            <div class="skill-bar">
+                <span style="width:65%"></span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="section-title">
+
+        <h2>
+            My <span class="gradient">Projects</span>
+        </h2>
+
+        <p>
+            Some of the things I have worked on.
+        </p>
+
+    </div>
+
+
+    <div class="projects">
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 01
+            </div>
+
+            <h3>Student Management System</h3>
+
+            <p>
+                A simple application designed to manage student
+                information and academic records efficiently.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Database</span>
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 02
+            </div>
+
+            <h3>Cybersecurity Awareness</h3>
+
+            <p>
+                A project focused on educating users about strong
+                passwords, phishing, social engineering and safe
+                internet practices.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Cybersecurity</span>
+                <span class="tag">Awareness</span>
+                <span class="tag">Web</span>
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 03
+            </div>
+
+            <h3>Personal Portfolio</h3>
+
+            <p>
+                A responsive personal portfolio website showcasing
+                my education, skills, projects and career interests.
+            </p>
+
+            <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-number">
+                PROJECT 04
+            </div>
+
+            <h3>Network Security Lab</h3>
+
+            <p>
+                Practical learning project exploring networking concepts,
+                basic security techniques and system protection.
+            </p>
+
+            <div class="tags">
+                <span class="tag">Networking</span>
+                <span class="tag">Linux</span>
+                <span class="tag">Security</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CERTIFICATIONS -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>
+            Certifications & <span class="gradient">Achievements</span>
+        </h2>
+
+        <p>
+            Learning beyond the classroom.
+        </p>
+
+    </div>
+
+
+    <div class="certifications">
+
+        <div class="cert">
+
+            <div class="cert-icon">🏆</div>
+
+            <h3>Cybersecurity</h3>
+
+            <p>
+                Add your cybersecurity certification here.
+            </p>
+
+        </div>
+
+
+        <div class="cert">
+
+            <div class="cert-icon">💻</div>
+
+            <h3>Programming</h3>
+
+            <p>
+                Add your programming certification here.
+            </p>
+
+        </div>
+
+
+        <div class="cert">
+
+            <div class="cert-icon">🚀</div>
+
+            <h3>Workshops</h3>
+
+            <p>
+                Add your workshops, hackathons or achievements here.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <h2>
+            Let's <span class="gradient">Connect</span>
+        </h2>
+
+        <p>
+            Have an opportunity, project or idea? Feel free to reach out.
+        </p>
+
+        <a href="mailto:yourmail@example.com" class="btn primary">
+            Send Me an Email
+        </a>
+
+
+        <div class="socials">
+
+            <a href="#" target="_blank">
+                GitHub
+            </a>
+
+            <a href="#" target="_blank">
+                LinkedIn
+            </a>
+
+            <a href="#" target="_blank">
+                Instagram
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 Hariharan. All Rights Reserved.
+</footer>
+
+</body>
+</html>
